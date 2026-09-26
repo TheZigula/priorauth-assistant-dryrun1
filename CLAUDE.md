@@ -68,6 +68,9 @@ A front-desk assistant for an orthopedic clinic: Dana asks plain-English questio
         A different model family grades the one being graded. Two keys, two spend caps, never shared.
     ### Ragas 0.4.3: use ragas.metrics.collections and llm_factory / embedding_factory
         The legacy imports work but print deprecation warnings on screen.
+    ### The pre-push key tripwire is a literal substring match, so it trips on its own pattern
+        Before every push, the staged diff is searched for three literal key prefixes (OpenAI project, Anthropic, AWS access key id); any hit blocks the push.
+        Never write those prefixes literally in a tracked file (scrubber regex, test, fake key, doc, this file). Use a character class, e.g. A[K]IA, or build the string from parts.
     <add hazards as they happen; one ### per hazard; say each one out loud when you write it>
 
 ## Don't

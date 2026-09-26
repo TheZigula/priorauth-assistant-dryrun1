@@ -1,0 +1,21 @@
+# .dockerignore: owned by instance 4 (deploy). Keeps secrets, the front end, installed dependencies,
+# local databases, logs, the eval and the docs out of the backend build context and image.
+.git
+.env
+.env.*
+**/.env
+**/.env.*
+frontend
+**/node_modules
+.venv
+**/__pycache__
+chroma
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite
+**/*.sqlite3
+**/*.log
+**/.vercel
+eval
+docs
