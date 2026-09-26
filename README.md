@@ -72,7 +72,7 @@ python eval/run_eval.py
 | What | Where |
 |---|---|
 | Front end (Vercel) | https://priorauth-assistant-dryrun1.vercel.app |
-| Backend (DigitalOcean App Platform) | _pending: set at brief step 3_ (`/health`) |
+| Backend (DigitalOcean App Platform) | https://plankton-app-kkdyy.ondigitalocean.app (`/health`; serves the deploy placeholder until the real backend lands) |
 | Repository | https://github.com/TheZigula/priorauth-assistant-dryrun1 |
 
 The backend image is the root `Dockerfile`: pinned Python slim base, non-root user, uvicorn on port 8080, `/health`
