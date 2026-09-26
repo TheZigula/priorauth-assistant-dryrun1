@@ -77,8 +77,12 @@ A front-desk assistant for an orthopedic clinic: Dana asks plain-English questio
         A bare `vercel --yes --prod` in frontend/ can land on it. Link by explicit name first: `vercel link --yes --project priorauth-assistant-dryrun1`.
     ### doctl's saved token returns 401
         App Platform is dashboard-only today (Apps, Create App, GitHub, repo, main, port 8080, smallest size). Paste the app URL back to instance 4.
+    ### LangGraph interrupt(): never raise after it; detect a pending approval with snapshot.interrupts, not snapshot.next
+        Raising inside a node after interrupt() returns stores the bad resume value, and the next resume replays it and fails again. The gate re-interrupts on a mismatched decision instead. After a re-interrupt, get_state().next is () even though the run is paused.
     ### `vercel link` (and `vercel env pull`) write frontend/.env.local holding a VERCEL_OIDC_TOKEN
         A real credential, gitignored. Never open that file on screen; instance 4 deleted it unread after linking. Dev VITE_API_BASE lives in frontend/.env.development.local.
+    ### The shakedown app from earlier tonight is still live on App Platform, bound to another repo
+        Its /health answers 200 with service "hello-backend"; this repo's placeholder says "priorauth-hello". Prove a deploy by the service name, not the 200.
     <add hazards as they happen; one ### per hazard; say each one out loud when you write it>
 
 ## Don't
