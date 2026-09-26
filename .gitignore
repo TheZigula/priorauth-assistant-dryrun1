@@ -1,0 +1,16 @@
+# .gitignore: owned by instance 4 (repo hygiene). Keeps secrets, installed dependencies, caches,
+# the local vector store, deploy links, databases (thread state holds case data) and logs out of git.
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+.venv/
+chroma/
+.vercel/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.log

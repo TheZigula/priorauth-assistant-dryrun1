@@ -1,0 +1,5 @@
+# .gitattributes: owned by instance 4 (repo hygiene). Stores and checks out every text file with LF,
+# because this box has core.autocrlf=true and a CRLF script breaks inside a Linux container.
+* text=auto eol=lf
+*.pdf binary
+*.png binary
