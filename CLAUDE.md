@@ -22,7 +22,7 @@ A front-desk assistant for an orthopedic clinic: Dana asks plain-English questio
     npm --prefix frontend run dev                              # front end, http://localhost:5173
     python backend/ingest.py                                   # chunk + embed data/corpus into ./chroma
     python eval/run_eval.py                                    # eval; writes eval/results.json; nonzero exit on any failure
-    detect-secrets scan --all-files .                          # secrets scan; run before every push; non-empty results block
+    detect-secrets scan @(git ls-files --cached --others --exclude-standard)   # secrets scan over every file git could push; run before every push; non-empty results block
     ### Gate state
     SWEEP: NOT ADOPTED (150-minute prototype; the production mutation gate is declined on the record)
     SECURITY BATTERY: detect-secrets only (screen is recorded); pip-audit and bandit NOT ADOPTED for the prototype
@@ -71,6 +71,12 @@ A front-desk assistant for an orthopedic clinic: Dana asks plain-English questio
     ### The pre-push key tripwire is a literal substring match, so it trips on its own pattern
         Before every push, the staged diff is searched for three literal key prefixes (OpenAI project, Anthropic, AWS access key id); any hit blocks the push.
         Never write those prefixes literally in a tracked file (scrubber regex, test, fake key, doc, this file). Use a character class, e.g. A[K]IA, or build the string from parts.
+    ### detect-secrets --all-files scans gitignored paths
+        It took 75s and flagged 112 strings in frontend/node_modules, and it would flag .env. The gate scans what git could push instead (Commands above; decided Sep 26 dry run).
+    ### Vercel already has a project named `frontend` (the Sep 25 shakedown)
+        A bare `vercel --yes --prod` in frontend/ can land on it. Link by explicit name first: `vercel link --yes --project priorauth-assistant-dryrun1`.
+    ### doctl's saved token returns 401
+        App Platform is dashboard-only today (Apps, Create App, GitHub, repo, main, port 8080, smallest size). Paste the app URL back to instance 4.
     <add hazards as they happen; one ### per hazard; say each one out loud when you write it>
 
 ## Don't
