@@ -48,7 +48,8 @@ npm --prefix frontend run dev
 Run the last two in separate terminals, then open http://localhost:5173. Ingestion chunks and embeds
 `data/corpus` into `./chroma/` with OpenAI `text-embedding-3-small`; without a working key it falls back to
 Chroma's local embedding model and says so. The front end talks to the backend only when `VITE_API_BASE` is set
-(for example `VITE_API_BASE=http://localhost:8000` in `frontend/.env.local`); unset, it runs on a built-in mock.
+(for example `VITE_API_BASE=http://localhost:8000` in `frontend/.env.development.local`); unset, it runs on a
+built-in mock. Not `frontend/.env.local`: the Vercel CLI writes a token into that file when it links the project.
 
 ## Run the eval
 
@@ -85,7 +86,7 @@ settings and Vercel through its project settings, never through a file in this r
 | `ANTHROPIC_API_KEY` | backend: the agents (Claude) | local `.env`; App Platform encrypted env var |
 | `OPENAI_API_KEY` | backend embeddings and the eval judge | local `.env`; App Platform encrypted env var |
 | `EVAL_JUDGE` | eval only: judge model name | local `.env` (optional) |
-| `VITE_API_BASE` | front end, at build time: the backend URL | `frontend/.env.local` in dev; Vercel project env var in prod |
+| `VITE_API_BASE` | front end, at build time: the backend URL | `frontend/.env.development.local` in dev; Vercel project env var in prod |
 
 There are deliberately no tracing keys: a trace would carry case fields off the machine.
 

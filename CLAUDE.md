@@ -77,6 +77,8 @@ A front-desk assistant for an orthopedic clinic: Dana asks plain-English questio
         A bare `vercel --yes --prod` in frontend/ can land on it. Link by explicit name first: `vercel link --yes --project priorauth-assistant-dryrun1`.
     ### doctl's saved token returns 401
         App Platform is dashboard-only today (Apps, Create App, GitHub, repo, main, port 8080, smallest size). Paste the app URL back to instance 4.
+    ### `vercel link` (and `vercel env pull`) write frontend/.env.local holding a VERCEL_OIDC_TOKEN
+        A real credential, gitignored. Never open that file on screen; instance 4 deleted it unread after linking. Dev VITE_API_BASE lives in frontend/.env.development.local.
     <add hazards as they happen; one ### per hazard; say each one out loud when you write it>
 
 ## Don't
