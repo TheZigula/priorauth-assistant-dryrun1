@@ -70,7 +70,7 @@ python eval/run_eval.py
 
 | What | Where |
 |---|---|
-| Front end (Vercel) | _pending: set at brief step 3_ |
+| Front end (Vercel) | https://priorauth-assistant-dryrun1.vercel.app |
 | Backend (DigitalOcean App Platform) | _pending: set at brief step 3_ (`/health`) |
 | Repository | https://github.com/TheZigula/priorauth-assistant-dryrun1 |
 
